@@ -9,8 +9,8 @@
 # ✔ Добавьте аннотацию типов где это возможно
 
 
-number = 16
-print(bin(number), oct(number))
+number = 255
+print(bin(number), oct(number), hex(number))
 result = ""
 divider = int(input('Введите основание: '))
 while number > 0:
