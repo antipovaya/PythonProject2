@@ -5,23 +5,23 @@
 # ✔ Для проверки числа на простоту используйте
 # правило: «число является простым, если делится
 # нацело только на единицу и на себя».
-#
-# def my_gen(num):
-#     start = 2
-#     count = 0
-#     while count < num:
-#         for i in range(2, int(start ** 0.5 + 1)):
-#             if start % i == 0:
-#                 break
-#             else:
-#                 count += 1
-#                 yield start
-#             start += 1
-#
-#
-# N = 10
-# for num in my_gen(N):
-#     print(num)
+
+def my_gen(num):
+    start = 2
+    count = 0
+    while count < num:
+        for i in range(2, int(start ** 0.5 + 1)):
+            if start % i == 0:
+                break
+        else:
+            count += 1
+            yield start
+        start += 1
+
+
+N = 10
+for num in my_gen(N):
+    print(num)
 
 # my_iter = iter(my_gen(N))
 # print(next(my_iter))
@@ -41,10 +41,11 @@ def prime_generator(n):
             if num % i == 0:
                 is_prime = False
                 break
-            if is_prime:
-                yield num
-                count += 1
-            num += 1
+        if is_prime:
+            yield num
+            count += 1
+        num += 1
+
 
 
 print(*prime_generator(30))
