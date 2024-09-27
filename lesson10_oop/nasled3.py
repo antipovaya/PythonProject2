@@ -45,7 +45,6 @@ class Hero(Person, Address, Weapon):
         self.power = power
         Person.__init__(self, name, race, speed)
         Address.__init__(self, country, city, street)
-        20
         Weapon.__init__(self, left_hand, right_hand)
     def change_health(self, other, quantity):
             self.health += quantity * 2
