@@ -3,6 +3,7 @@
 которое обеспечивается за счет перегрузки соответсвующих методов
 """
 
+
 class Validate:
 
     def __init__(self, atr):
@@ -28,6 +29,7 @@ class Worker:
 
     def calculation(self):
         return self.rate * self.hours
+
 
 w = Worker(-10, 100)
 # w.hours = -10
