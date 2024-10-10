@@ -6,7 +6,7 @@
 """
 import logging
 
-logging.basicConfig(filename='example.log.', filemode='a', encoding='utf-8',  # если поставим "w",  то файл будет
+logging.basicConfig(filename='example.log.', filemode='w', encoding='utf-8',  # если поставим "w",  то файл будет
                     # перезаписываться каждый раз
                     format='{levelname} - {asctime} в строке {lineno} '
                            'функция "{funcName}()" : {msg}', style='{', level=logging.WARNING)
