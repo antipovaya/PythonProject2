@@ -6,7 +6,7 @@ from random import randint
 
 
 num = randint(0, 1001)
-print(num)
+#print(num)
 i = 10
 while i != 0:
     try:
