@@ -14,18 +14,38 @@
 # На входе:
 # num = 1000001
 
-num = 4
+# num = 4
+#
+# if num <= 1 or num >= 100000:
+#     print('Число должно быть больше 1 и меньше 100000')
+# else:
+#     k = 0
+#     for i in range(2, num):
+#         if num % i == 0:
+#             k = k + 1
+#     if k <= 0:
+#         print("Простое")
+#     else:
+#         print("Не является простым")
 
-if num <= 1 or num >= 100000:
-    print('Число должно быть больше 1 и меньше 100000')
-else:
-    k = 0
-    for i in range(2, num):
-        if num % i == 0:
-            k = k + 1
-    if k <= 0:
-        print("Простое")
-    else:
-        print("Не является простым")
+def is_prime(p: int) -> bool:
+    if not isinstance(p, int):
+        raise TypeError('Неверный формат!')
+    elif p < 2:
+        raise ValueError('Число должно быть больше 1.')
+    elif p > 100_000:
+        raise ValueError('Число должно быть меньше 100 001.')
+    for i in range(2, p):
+        if p % i == 0:
+            return False
+    return True
+
+
+if __name__ == '__main__':
+    num = 1
+    print(is_prime(num))
+
+
+
 
 
