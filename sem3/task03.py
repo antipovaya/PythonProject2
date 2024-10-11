@@ -18,7 +18,11 @@ my_dict = {}
 
 for item in my_tuple:
     key = type(item)  # .strip('<>').split()[1].strip("'")
-    my_dict.setdefault(key, []).append(item)
+    my_dict.setdefault(key, []).append(item)  # dict.setdefault(key[, default]) -> Значение по ключу, либо default
+#  key : Ключ, значение по которому следует получить, если таковое имеется в словаре, либо создать.
+#  default=None : Значение, которое будет использовано при добавлении нового элемента в словарь.
+# Позволяет получить значение из словаря по ключу. Автоматически добавляет элемент словаря, если он отсутствует.
+
 # if key not in my_dict:
 # my_dict[key] = []
 # elif type(my_dict[key]) == key:

@@ -17,9 +17,9 @@
 на любое большее количество друзей.
 """
 data = {"Вася": ("Палатка", "Котелок", "Спички", "Шашлык"),
-"Витя": ("Палатка", "Котелок", "Топор"),
-"Петя": ("Палатка", "Котелок", "Топор", "Спирт"),
-"Саша": ("Палатка", "Спирт")}
+        "Витя": ("Палатка", "Котелок", "Топор"),
+        "Петя": ("Палатка", "Котелок", "Топор", "Спирт"),
+        "Саша": ("Палатка", "Спирт")}
 
 # ✔ Какие вещи взяли все три друга
 # intersection - возвращает пересечение — элементы данного множества,
@@ -43,7 +43,7 @@ for s in data:
     st = set(data[s])
 for f in data:
     if s != f:
-    st = st.difference(set(data[f]))
+        st = st.difference(set(data[f]))
 if st:
     print(f"Только {s} имеет {st}")
 
@@ -54,7 +54,7 @@ for s in data:
 st_f = set()
 for f in data:
     if s != f:
-    st_f = st_f.intersection(set(data[f])) if st_f else set(data[f])
+        st_f = st_f.intersection(set(data[f])) if st_f else set(data[f])
 if st_f:
     delta = st_f.difference(st)
 if delta:

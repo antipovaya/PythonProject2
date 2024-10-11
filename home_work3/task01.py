@@ -12,11 +12,17 @@
 # На входе:
 #
 #
-items = {
+
+import random
+
+elements = {
     "ключи": 0.3,
     "кошелек": 0.2,
     "телефон": 0.5,
-    "зажигалка": 0.1
+    "зажигалка": 0.1,
+    "консерва": 0.3,
+    "сигареты": 0.1,
+    "вода": 0.5
 }
 max_weight = 1.0
 # На выходе, например, один из допустимых вариантов может быть таким:
@@ -27,10 +33,20 @@ max_weight = 1.0
 
 backpack = {}
 total = 0
-
-for el in items:
-    if total < max_weight:
-        backpack[el] = items[el]
-        total += items[el]
+i = 0
+while total < max_weight:
+    el, w = random.choice(list(elements.items()))  # рандомно получаем элемены из словаря, если используем for, как в
+    # примере ниже, то будут всегда одни и те же
+    if el not in backpack.keys():
+        if total + w <= max_weight:
+            backpack[el] = w
+            total += w
 
 print(backpack)
+
+# for el in elements:
+#     if total < max_weight:
+#         backpack[el] = elements[el]
+#         total += elements[el]
+#
+# print(backpack)

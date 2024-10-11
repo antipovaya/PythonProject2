@@ -8,7 +8,10 @@ my_list = [1, 5, 3, 5, 2, 2, 5]
 
 count_dict = {}
 for item in my_list:
-    count_dict[item] = count_dict.get(item, 0) + 1
+    count_dict[item] = count_dict.get(item, 0) + 1  # Возвращает значение из словаря по указанному ключу.
+# dict.get(key[, default]) -> Значение по ключу, либо default.
+# key : Ключ, значение по которому требуется получить.
+# default : Значение, которое следует вернуть, если в словаре не окажется указанного ключа. По умолчанию — None.
 
 my_list_copy = my_list[:]
 
