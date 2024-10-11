@@ -1,0 +1,107 @@
+[
+    {
+        "name": "file_1_8.json",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\file_1_8.json",
+        "type": "file",
+        "size": 279,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "file_1_8.pickle",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\file_1_8.pickle",
+        "type": "file",
+        "size": 382,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "new_c.csv",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\new_c.csv",
+        "type": "file",
+        "size": 79,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "new_json.json",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\new_json.json",
+        "type": "file",
+        "size": 249,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "new_json.pickle",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\new_json.pickle",
+        "type": "file",
+        "size": 245,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task01.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task01.py",
+        "type": "file",
+        "size": 971,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task02.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task02.py",
+        "type": "file",
+        "size": 1494,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task03.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task03.py",
+        "type": "file",
+        "size": 644,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task04.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task04.py",
+        "type": "file",
+        "size": 1179,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task05.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task05.py",
+        "type": "file",
+        "size": 1018,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task06.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task06.py",
+        "type": "file",
+        "size": 824,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task07.py",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task07.py",
+        "type": "file",
+        "size": 595,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task8_2.csv",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task8_2.csv",
+        "type": "file",
+        "size": 79,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task8_2.json",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task8_2.json",
+        "type": "file",
+        "size": 271,
+        "parent": "sem8_ser"
+    },
+    {
+        "name": "task8_2.pickle",
+        "path": "C:\\Users\\keoka\\Desktop\\\u042f\u043d\u0430 \u0443\u0447\u0435\u0431\u0430\\Python\\Python\\sem8_ser\\task8_2.pickle",
+        "type": "file",
+        "size": 182,
+        "parent": "sem8_ser"
+    }
+]
