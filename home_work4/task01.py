@@ -13,11 +13,18 @@
 # [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 
 matrix = [[1, 2, 3, 5],
-         [4, 5, 6, 7],
-         [7, 8, 9, 2]]
-print(len(matrix[0]))
+          [4, 5, 6, 7],
+          [7, 8, 9, 2]]
+
+
+# print(len(matrix[0]))
+
+
 def transpose(matrix):
+    """Функция для транспонирования матрицы, принимает в аргументы matrix, и возвращает
+    транспонированную матрицу."""
     return [[row[i] for row in matrix] for i in range(len(matrix[0]))]
 
 
-print(transpose(matrix))
+if __name__ == '__main__':
+    print(transpose(matrix))
