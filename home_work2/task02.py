@@ -29,5 +29,6 @@ n2 = fractions.Fraction(numerator2, denominator2)
 
 print(f'Сумма дробей: {(numerator1 * denominator2 + numerator2 * denominator1)}/{denominator1 * denominator2}')
 print(f'Произведение дробей: {(numerator1 * numerator2)}/{denominator1 * denominator2}')
+# проверка:
 print(f'Сумма дробей: {n1 + n2}')
 print(f'Произведение дробей: {n1 * n2}')
