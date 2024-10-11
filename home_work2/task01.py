@@ -33,3 +33,4 @@ if __name__ == '__main__':
 # hex_upper = format(num, 'x')
 # print(f'Шестнадцатеричное представление числа: {hex_upper}')
 # print(f'Проверка результата: {hex(num)}')
+
