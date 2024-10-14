@@ -17,7 +17,8 @@ bonus = ["10%", "5%", "15%"]
 #
 # {'Alice': 500.0, 'Bob': 300.0, 'Charlie': 1050.0}
 
-result = {name: sal * float(bon.rstrip('%'))/100 for name, sal, bon in zip(names, salary, bonus)}
+result = {name: sal * float(bon.rstrip('%'))/100 for name, sal, bon in zip(names, salary, bonus)}  # str.rstrip
+# Возвращает копию указанной строки, с конца которой устранены указанные символы.
 
 # return {name: salary * float(award.rstrip('%'))/100 for name, salary, award in zip(names, salaries, awards)}
 print(result)

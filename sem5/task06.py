@@ -11,12 +11,10 @@ my_gen = (f'\n' if j == 11 else f' {j}*{i}={i * j:2d} ' for i in range(2, 10) fo
 
 print(*my_gen)
 
-
-
-line_1 = (f'\n' if j == 6 else f'{j}x{i}={i*j:2d}' for i in range(2, 11) for j in range(2, 7))
-line_2 = (f'\n' if j == 11 else f'{j}x{i}={i*j:2d}' for i in range(2, 11) for j in range(6, 12))
+line_1 = (f'\n' if j == 6 else f'{j}x{i}={i * j:2d}' for i in range(2, 11) for j in range(2, 7))
+line_2 = (f'\n' if j == 11 else f'{j}x{i}={i * j:2d}' for i in range(2, 11) for j in range(6, 12))
 
 print(*line_1)
 print(*line_2)
 
-print(int(2.73))
+

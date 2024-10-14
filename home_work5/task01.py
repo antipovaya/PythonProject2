@@ -23,10 +23,6 @@
 #     return (way, name, '.' + expansion)
 #
 #
-#
-
-
-#
 # import os
 #
 # def get_file_info(path):
@@ -39,19 +35,15 @@
 import os
 
 
-
 def get_file_info(file_path):
-
     path, filename = os.path.split(file_path)
     # print(path, filename)
     if path:
-
         path += '/'
 
     base, ext = os.path.splitext(filename)
     # print(base, ext)
     return path, base, ext
-
 
 
 file_path = "C:/Users/User/Documents/example.txt"
