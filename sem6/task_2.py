@@ -27,4 +27,5 @@ def func(start, stop, count):
     return False
 
 
-print(func(1, 3, 3))
+if __name__ == '__main__':
+    print(func(1, 3, 3))
