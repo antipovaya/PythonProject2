@@ -1,1 +1,0 @@
-def rename_filesdef rename_files: def rename_files (desired_name, num_digits, source_ext, target_ext, name_range=None):
