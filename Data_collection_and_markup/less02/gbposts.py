@@ -12,9 +12,9 @@ headers = {"User-Agent": ua.chrome}
 params = {'page': 1}
 session = requests.session()  # аналогия с открытой вкладкой
 
-response = session.get(url + "/posts", headers=headers, params=params)
-soup = BeautifulSoup(response.text, "html.parser")
-posts = soup.find_all('div', {'class': 'post-item event'})
+# response = session.get(url + "/posts", headers=headers, params=params)
+# soup = BeautifulSoup(response.text, "html.parser")
+# posts = soup.find_all('div', {'class': 'post-item event'})
 
 
 all_posts = []
