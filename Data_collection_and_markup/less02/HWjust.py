@@ -19,12 +19,13 @@ all_products = []
 
 for product in products:
     product_info = {}
-    name_info = product.find('div', {"class": 'title'})
+    name_info = product.find('a')
     product_info['name'] = name_info.getText()
+    product_info['url'] = url + name_info.get('href')
     count_info = product.find('div', {"class": 'skuc color-7'})
     try:
         product_info['count_in_collection'] = int(count_info.getText()[:2])
     except:
         product_info['count_in_collection'] = int(count_info.getText()[:1])
     all_products.append(product_info)
-    pprint(all_products)
+pprint(all_products)
