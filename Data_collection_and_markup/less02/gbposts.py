@@ -38,4 +38,4 @@ while True:
     print(f'Обработана {params["page"]} страница')
     params['page'] += 1
 pprint(all_posts)
-pprint(len(all_posts))
+
