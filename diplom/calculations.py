@@ -1,3 +1,21 @@
+from astropy.time import Time
+from astropy.coordinates import solar_system_ephemeris, EarthLocation
+from astropy.coordinates import get_body_barycentric, get_body
+
+t = Time("2024-12-10 16:30")
+loc = EarthLocation.of_site('greenwich')
+
+with solar_system_ephemeris.set('builtin'):
+    sun_user = get_body('sun', t, loc)
+
+print(sun_user)
+
+# <SkyCoord (GCRS: obstime=2024-12-10 16:30:00.000, obsgeoloc=(3353159.10641094, -2163608.49484903, 4958838.61798787)
+# m, obsgeovel=(157.78511936, 243.64017167, -0.39054804) m / s): (ra, dec, distance) in (deg, deg, AU)
+#     (257.78413159, -22.96298649, 0.98471784)>
+
+
+
 
 professions = {'aries': ['спортсмен', 'теннисист', 'боксер', 'стрелок', 'автогонщик', 'гонщик', 'лыжник',
                         'биатлонист', 'шахматист', 'гимнаст', 'гимнастка', 'чемпионка', 'хоккеист', 'чемпион',
@@ -154,6 +172,8 @@ professions = {'aries': ['спортсмен', 'теннисист', 'боксе
                          'публицист', 'военный', 'летчик', 'летчица', 'астрофизик', 'врач', 'шахматист', 'ученый',
                          'астроном', 'морской', 'военный', 'доктор', 'профессор', 'авиации','авиация', 'педагог']}
 
+
+
 test = {"date": "р. 1934-1-4", "name": "Зураб Церетели", "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
 
 for i in test['profession'].split():
@@ -172,4 +192,5 @@ for prof in new_k:
         test['planets'] = 1
         print(prof)
 print(test)
+
 
