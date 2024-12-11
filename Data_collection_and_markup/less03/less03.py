@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS books_toscrape_com.books (
 ) ENGINE = MergeTree
 ORDER BY id
 ''')
-
+with open('books.json', 'r', encoding='utf-8') as f:
+   books_data = json.load(f)
 # заполнение таблицы
 column_names = ["id", "category", "name", "url", "price", "available", "description"]
 data = [[i]+list(book.values()) for i,book in enumerate(books_data,1)]
