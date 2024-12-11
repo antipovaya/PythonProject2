@@ -2,13 +2,13 @@ from astropy.time import Time
 from astropy.coordinates import solar_system_ephemeris, EarthLocation
 from astropy.coordinates import get_body_barycentric, get_body
 
-# t = Time("2024-12-10 16:30")
-# loc = EarthLocation.of_site('greenwich')
-#
-# with solar_system_ephemeris.set('builtin'):
-#     sun_user = get_body('sun', t, loc)
-#
-# print(sun_user)
+t = Time("1934-1-4 12:00")
+loc = EarthLocation.of_site('greenwich')
+
+with solar_system_ephemeris.set('builtin'):
+    sun_user = get_body('saturn', t, loc)
+
+print(sun_user)
 
 # <SkyCoord (GCRS: obstime=2024-12-10 16:30:00.000, obsgeoloc=(3353159.10641094, -2163608.49484903, 4958838.61798787)
 # m, obsgeovel=(157.78511936, 243.64017167, -0.39054804) m / s): (ra, dec, distance) in (deg, deg, AU)
@@ -51,7 +51,6 @@ def sun_user(user):
         user['zodiac_sign_of_sun'] = 'aquarius'
     if 330 <= coordinates_sun < 360:
         user['zodiac_sign_of_sun'] = 'pisces'
-
 
 
 def mercury_user(user):
@@ -171,64 +170,62 @@ def saturn_user(user):
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
-        coordinates_jupiter = get_body('jupiter', date_user, loc)
-        coordinates_jupiter = float(str(coordinates_jupiter)[219:-28])
-        user['coordinates_jupiter'] = coordinates_jupiter
-    if 0 <= coordinates_jupiter < 30:
-        user['zodiac_sign_of_jupiter'] = 'aries'
-    if 30 <= coordinates_jupiter < 60:
-        user['zodiac_sign_of_jupiter'] = 'taurus'
-    if 60 <= coordinates_jupiter < 90:
-        user['zodiac_sign_of_jupiter'] = 'gemini'
-    if 90 <= coordinates_jupiter < 120:
-        user['zodiac_sign_of_jupiter'] = 'cancer'
-    if 120 <= coordinates_jupiter < 150:
-        user['zodiac_sign_of_jupiter'] = 'leo'
-    if 150 <= coordinates_jupiter < 180:
-        user['zodiac_sign_of_jupiter'] = 'virgo'
-    if 180 <= coordinates_jupiter < 210:
-        user['zodiac_sign_of_jupiter'] = 'libra'
-    if 210 <= coordinates_jupiter < 240:
-        user['zodiac_sign_of_jupiter'] = 'scorpio'
-    if 240 <= coordinates_jupiter < 270:
-        user['zodiac_sign_of_jupiter'] = 'sagittarius'
-    if 270 <= coordinates_jupiter < 300:
-        user['zodiac_sign_of_jupiter'] = 'capricorn'
-    if 300 <= coordinates_jupiter < 330:
-        user['zodiac_sign_of_jupiter'] = 'aquarius'
-    if 330 <= coordinates_jupiter < 360:
-        user['zodiac_sign_of_jupiter'] = 'pisces'
+        coordinates_saturn = get_body('saturn', date_user, loc)
+        coordinates_saturn = float(str(coordinates_saturn)[219:-29])
+        user['coordinates_saturn'] = coordinates_saturn
+    if 0 <= coordinates_saturn < 30:
+        user['zodiac_sign_of_saturn'] = 'aries'
+    if 30 <= coordinates_saturn < 60:
+        user['zodiac_sign_of_saturn'] = 'taurus'
+    if 60 <= coordinates_saturn < 90:
+        user['zodiac_sign_of_saturn'] = 'gemini'
+    if 90 <= coordinates_saturn < 120:
+        user['zodiac_sign_of_saturn'] = 'cancer'
+    if 120 <= coordinates_saturn < 150:
+        user['zodiac_sign_of_saturn'] = 'leo'
+    if 150 <= coordinates_saturn < 180:
+        user['zodiac_sign_of_saturn'] = 'virgo'
+    if 180 <= coordinates_saturn < 210:
+        user['zodiac_sign_of_saturn'] = 'libra'
+    if 210 <= coordinates_saturn < 240:
+        user['zodiac_sign_of_saturn'] = 'scorpio'
+    if 240 <= coordinates_saturn < 270:
+        user['zodiac_sign_of_saturn'] = 'sagittarius'
+    if 270 <= coordinates_saturn < 300:
+        user['zodiac_sign_of_saturn'] = 'capricorn'
+    if 300 <= coordinates_saturn < 330:
+        user['zodiac_sign_of_saturn'] = 'aquarius'
+    if 330 <= coordinates_saturn < 360:
+        user['zodiac_sign_of_saturn'] = 'pisces'
 
 
-test = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
+user = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
         "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
-sun_user(test)
-mercury_user(test)
-mars_user(test)
-jupiter_user(test)
-print(test)
+
+sun_user(user)
+mercury_user(user)
+mars_user(user)
+jupiter_user(user)
+saturn_user(user)
+
 
 # {'date': '1934-1-4', 'name': 'Зураб Церетели',
 #  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
-#  'coordinates_sun': 285.61208171, 'zodiac_sign_of_sun': 'capricorn'}
+#  'coordinates_sun': 285.61208171,
+#  'zodiac_sign_of_sun': 'capricorn',
+#  'coordinates_mercury': 275.6333463,
+#  'zodiac_sign_of_mercury': 'capricorn',
+#  'coordinates_mars': 309.3849143,
+#  'zodiac_sign_of_mars': 'aquarius',
+#  'coordinates_jupiter': 201.175321,
+#  'zodiac_sign_of_jupiter': 'libra',
+#  'coordinates_saturn': 318.44305432,
+#  'zodiac_sign_of_saturn': 'aquarius'}
 
-# professions_of_zodiac_signs
-# day_of_birth, professions_of_zodiac_signs
-# for i in test['profession'].split():
-#     if i in professions['capricorn']:
-#         print(i)
-#
-# k = test['profession'].split()
-# new_k = []
-# for i in k:
-#     new_k.append(i.replace(',', ''))
-# print(new_k)
-#
-# for prof in new_k:
-#     if prof in professions['capricorn']:
-#         test['planets'] = 1
-#         print(prof)
-# print(test)
+
+
+
+
 
 
 professions = {'aries': ['спортсмен', 'теннисист', 'боксер', 'стрелок', 'автогонщик', 'гонщик', 'лыжник',
@@ -409,8 +406,94 @@ professions = {'aries': ['спортсмен', 'теннисист', 'боксе
                           'публицист', 'военный', 'летчик', 'летчица', 'астрофизик', 'врач', 'шахматист', 'ученый',
                           'астроном', 'морской', 'военный', 'доктор', 'профессор', 'авиации', 'авиация', 'педагог']}
 
-# test = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
-#             "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
+def checking_planet(user, professions_of_zodiac_signs):
+    """
+    Функция проверяет совпадает ли реальная профессия личности с той, которая характерна ее гороскопу.
+    Также выдется подсчет количества вхождений в список профессий.
+    :param user: Словарь с именем, датой рождения и видами деятельности личности.
+    :param professions_of_zodiac_signs: Словарь профессий, классифицированных по знакам зодиака
+    """
+    user_profession = user['profession'].split()
+    new_user_profession = []
+    for el in user_profession:
+        new_user_profession.append(el.replace(',', ''))
+    print(new_user_profession)
+    user['connection_sun_proffesion'] = 0
+    user['count_sun_proffesion'] = 0
+
+    user['connection_mercury_proffesion'] = 0
+    user['count_mercury_proffesion'] = 0
+
+    user['connection_mars_proffesion'] = 0
+    user['count_mars_proffesion'] = 0
+
+    user['connection_jupiter_proffesion'] = 0
+    user['count_jupiter_proffesion'] = 0
+
+    user['connection_saturn_proffesion'] = 0
+    user['count_saturn_proffesion'] = 0
+
+    for prof in new_user_profession:
+        if prof in professions_of_zodiac_signs[user['zodiac_sign_of_sun']]:
+            user['connection_sun_proffesion'] = 1
+            user['count_sun_proffesion'] += 1
+    for prof in new_user_profession:
+        if prof in professions_of_zodiac_signs[user['zodiac_sign_of_mercury']]:
+            user['connection_mercury_proffesion'] = 1
+            user['count_mercury_proffesion'] += 1
+    for prof in new_user_profession:
+        if prof in professions_of_zodiac_signs[user['zodiac_sign_of_mars']]:
+            user['connection_mars_proffesion'] = 1
+            user['count_mars_proffesion'] += 1
+    for prof in new_user_profession:
+        if prof in professions_of_zodiac_signs[user['zodiac_sign_of_jupiter']]:
+            user['connection_jupiter_proffesion'] = 1
+            user['count_jupiter_proffesion'] += 1
+    for prof in new_user_profession:
+        if prof in professions_of_zodiac_signs[user['zodiac_sign_of_saturn']]:
+            user['connection_saturn_proffesion'] = 1
+            user['count_saturn_proffesion'] += 1
+
+checking_planet(user, professions)
+print(user)
+
+# {'date': '1934-1-4', 'name': 'Зураб Церетели',
+#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
+#  'coordinates_sun': 285.61208171,
+#  'zodiac_sign_of_sun': 'capricorn',
+#  'coordinates_mercury': 275.6333463,
+#  'zodiac_sign_of_mercury': 'capricorn',
+#  'coordinates_mars': 309.3849143,
+#  'zodiac_sign_of_mars': 'aquarius',
+#  'coordinates_jupiter': 201.175321,
+#  'zodiac_sign_of_jupiter': 'libra',
+#  'coordinates_saturn': 318.44305432,
+#  'zodiac_sign_of_saturn': 'aquarius',
+#  'connection_sun_proffesion': 1,
+#  'count_sun_proffesion': 3,
+#  'connection_mercury_proffesion': 1,
+#  'count_mercury_proffesion': 3,
+#  'connection_mars_proffesion': 1,
+#  'count_mars_proffesion': 4,
+#  'connection_jupiter_proffesion': 1,
+#  'count_jupiter_proffesion': 4,
+#  'connection_saturn_proffesion': 1,
+#  'count_saturn_proffesion': 4}
+
+
+# {'date': '1934-1-4', 'name': 'Зураб Церетели',
+#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
+#  'coordinates_sun': 285.61208171,
+#  'zodiac_sign_of_sun': 'capricorn',
+#  'coordinates_mercury': 275.6333463,
+#  'zodiac_sign_of_mercury': 'capricorn',
+#  'coordinates_mars': 309.3849143,
+#  'zodiac_sign_of_mars': 'aquarius',
+#  'coordinates_jupiter': 201.175321,
+#  'zodiac_sign_of_jupiter': 'libra',
+#  'coordinates_saturn': 318.44305432,
+#  'zodiac_sign_of_saturn': 'aquarius'}
+
 #
 # for i in test['profession'].split():
 #     if i in professions['capricorn']:
