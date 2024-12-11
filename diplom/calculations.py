@@ -53,12 +53,164 @@ def sun_user(user):
         user['zodiac_sign_of_sun'] = 'pisces'
 
 
+
+def mercury_user(user):
+    """Функция рассчитывает координаты Меркурия по дате рождения пользователя, определяет знак зодиака планеты"""
+    if user['date'][:1] in 'р.':
+        user['date'] = user['date'].replace('р. ', '')
+    date_user = Time(user['date'] + ' 12:00')
+    loc = EarthLocation.of_site('greenwich')
+    with solar_system_ephemeris.set('builtin'):
+        coordinates_mercury = get_body('mercury', date_user, loc)
+        # print(str(coordinates_sun)[219:-28])
+        coordinates_mercury = float(str(coordinates_mercury)[219:-28])
+        user['coordinates_mercury'] = coordinates_mercury
+    if 0 <= coordinates_mercury < 30:
+        user['zodiac_sign_of_mercury'] = 'aries'
+    if 30 <= coordinates_mercury < 60:
+        user['zodiac_sign_of_mercury'] = 'taurus'
+    if 60 <= coordinates_mercury < 90:
+        user['zodiac_sign_of_mercury'] = 'gemini'
+    if 90 <= coordinates_mercury < 120:
+        user['zodiac_sign_of_mercury'] = 'cancer'
+    if 120 <= coordinates_mercury < 150:
+        user['zodiac_sign_of_mercury'] = 'leo'
+    if 150 <= coordinates_mercury < 180:
+        user['zodiac_sign_of_mercury'] = 'virgo'
+    if 180 <= coordinates_mercury < 210:
+        user['zodiac_sign_of_mercury'] = 'libra'
+    if 210 <= coordinates_mercury < 240:
+        user['zodiac_sign_of_mercury'] = 'scorpio'
+    if 240 <= coordinates_mercury < 270:
+        user['zodiac_sign_of_mercury'] = 'sagittarius'
+    if 270 <= coordinates_mercury < 300:
+        user['zodiac_sign_of_mercury'] = 'capricorn'
+    if 300 <= coordinates_mercury < 330:
+        user['zodiac_sign_of_mercury'] = 'aquarius'
+    if 330 <= coordinates_mercury < 360:
+        user['zodiac_sign_of_mercury'] = 'pisces'
+
+
+def mars_user(user):
+    """Функция рассчитывает координаты Марса по дате рождения пользователя, определяет знак зодиака планеты"""
+    if user['date'][:1] in 'р.':
+        user['date'] = user['date'].replace('р. ', '')
+    date_user = Time(user['date'] + ' 12:00')
+    loc = EarthLocation.of_site('greenwich')
+    with solar_system_ephemeris.set('builtin'):
+        coordinates_mars = get_body('mars', date_user, loc)
+        # print(str(coordinates_sun)[219:-28])
+        coordinates_mars = float(str(coordinates_mars)[219:-28])
+        user['coordinates_mars'] = coordinates_mars
+    if 0 <= coordinates_mars < 30:
+        user['zodiac_sign_of_mars'] = 'aries'
+    if 30 <= coordinates_mars < 60:
+        user['zodiac_sign_of_mars'] = 'taurus'
+    if 60 <= coordinates_mars < 90:
+        user['zodiac_sign_of_mars'] = 'gemini'
+    if 90 <= coordinates_mars < 120:
+        user['zodiac_sign_of_mars'] = 'cancer'
+    if 120 <= coordinates_mars < 150:
+        user['zodiac_sign_of_mars'] = 'leo'
+    if 150 <= coordinates_mars < 180:
+        user['zodiac_sign_of_mars'] = 'virgo'
+    if 180 <= coordinates_mars < 210:
+        user['zodiac_sign_of_mars'] = 'libra'
+    if 210 <= coordinates_mars < 240:
+        user['zodiac_sign_of_mars'] = 'scorpio'
+    if 240 <= coordinates_mars < 270:
+        user['zodiac_sign_of_mars'] = 'sagittarius'
+    if 270 <= coordinates_mars < 300:
+        user['zodiac_sign_of_mars'] = 'capricorn'
+    if 300 <= coordinates_mars < 330:
+        user['zodiac_sign_of_mars'] = 'aquarius'
+    if 330 <= coordinates_mars < 360:
+        user['zodiac_sign_of_mars'] = 'pisces'
+
+
+def jupiter_user(user):
+    """Функция рассчитывает координаты Юпитера по дате рождения пользователя, определяет знак зодиака планеты"""
+    if user['date'][:1] in 'р.':
+        user['date'] = user['date'].replace('р. ', '')
+    date_user = Time(user['date'] + ' 12:00')
+    loc = EarthLocation.of_site('greenwich')
+    with solar_system_ephemeris.set('builtin'):
+        coordinates_jupiter = get_body('jupiter', date_user, loc)
+        coordinates_jupiter = float(str(coordinates_jupiter)[219:-28])
+        user['coordinates_jupiter'] = coordinates_jupiter
+    if 0 <= coordinates_jupiter < 30:
+        user['zodiac_sign_of_jupiter'] = 'aries'
+    if 30 <= coordinates_jupiter < 60:
+        user['zodiac_sign_of_jupiter'] = 'taurus'
+    if 60 <= coordinates_jupiter < 90:
+        user['zodiac_sign_of_jupiter'] = 'gemini'
+    if 90 <= coordinates_jupiter < 120:
+        user['zodiac_sign_of_jupiter'] = 'cancer'
+    if 120 <= coordinates_jupiter < 150:
+        user['zodiac_sign_of_jupiter'] = 'leo'
+    if 150 <= coordinates_jupiter < 180:
+        user['zodiac_sign_of_jupiter'] = 'virgo'
+    if 180 <= coordinates_jupiter < 210:
+        user['zodiac_sign_of_jupiter'] = 'libra'
+    if 210 <= coordinates_jupiter < 240:
+        user['zodiac_sign_of_jupiter'] = 'scorpio'
+    if 240 <= coordinates_jupiter < 270:
+        user['zodiac_sign_of_jupiter'] = 'sagittarius'
+    if 270 <= coordinates_jupiter < 300:
+        user['zodiac_sign_of_jupiter'] = 'capricorn'
+    if 300 <= coordinates_jupiter < 330:
+        user['zodiac_sign_of_jupiter'] = 'aquarius'
+    if 330 <= coordinates_jupiter < 360:
+        user['zodiac_sign_of_jupiter'] = 'pisces'
+
+
+def saturn_user(user):
+    """Функция рассчитывает координаты Сатурна по дате рождения пользователя, определяет знак зодиака планеты"""
+    if user['date'][:1] in 'р.':
+        user['date'] = user['date'].replace('р. ', '')
+    date_user = Time(user['date'] + ' 12:00')
+    loc = EarthLocation.of_site('greenwich')
+    with solar_system_ephemeris.set('builtin'):
+        coordinates_jupiter = get_body('jupiter', date_user, loc)
+        coordinates_jupiter = float(str(coordinates_jupiter)[219:-28])
+        user['coordinates_jupiter'] = coordinates_jupiter
+    if 0 <= coordinates_jupiter < 30:
+        user['zodiac_sign_of_jupiter'] = 'aries'
+    if 30 <= coordinates_jupiter < 60:
+        user['zodiac_sign_of_jupiter'] = 'taurus'
+    if 60 <= coordinates_jupiter < 90:
+        user['zodiac_sign_of_jupiter'] = 'gemini'
+    if 90 <= coordinates_jupiter < 120:
+        user['zodiac_sign_of_jupiter'] = 'cancer'
+    if 120 <= coordinates_jupiter < 150:
+        user['zodiac_sign_of_jupiter'] = 'leo'
+    if 150 <= coordinates_jupiter < 180:
+        user['zodiac_sign_of_jupiter'] = 'virgo'
+    if 180 <= coordinates_jupiter < 210:
+        user['zodiac_sign_of_jupiter'] = 'libra'
+    if 210 <= coordinates_jupiter < 240:
+        user['zodiac_sign_of_jupiter'] = 'scorpio'
+    if 240 <= coordinates_jupiter < 270:
+        user['zodiac_sign_of_jupiter'] = 'sagittarius'
+    if 270 <= coordinates_jupiter < 300:
+        user['zodiac_sign_of_jupiter'] = 'capricorn'
+    if 300 <= coordinates_jupiter < 330:
+        user['zodiac_sign_of_jupiter'] = 'aquarius'
+    if 330 <= coordinates_jupiter < 360:
+        user['zodiac_sign_of_jupiter'] = 'pisces'
+
+
 test = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
         "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
-
 sun_user(test)
+mercury_user(test)
+mars_user(test)
+jupiter_user(test)
 print(test)
 
+# {'date': '1934-1-4', 'name': 'Зураб Церетели',
+#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
+#  'coordinates_sun': 285.61208171, 'zodiac_sign_of_sun': 'capricorn'}
 
 # professions_of_zodiac_signs
 # day_of_birth, professions_of_zodiac_signs
