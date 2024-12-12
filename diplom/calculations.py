@@ -1,31 +1,22 @@
 from astropy.time import Time
 from astropy.coordinates import solar_system_ephemeris, EarthLocation
 from astropy.coordinates import get_body_barycentric, get_body
-
-t = Time("1934-1-4 12:00")
-loc = EarthLocation.of_site('greenwich')
-
-with solar_system_ephemeris.set('builtin'):
-    sun_user = get_body('saturn', t, loc)
-
-print(sun_user)
-
-# <SkyCoord (GCRS: obstime=2024-12-10 16:30:00.000, obsgeoloc=(3353159.10641094, -2163608.49484903, 4958838.61798787)
-# m, obsgeovel=(157.78511936, 243.64017167, -0.39054804) m / s): (ra, dec, distance) in (deg, deg, AU)
-#     (257.78413159, -22.96298649, 0.98471784)>
-
+import json
 
 
 def sun_user(user):
     """Функция рассчитывает координаты Солнца по дате рождения пользователя, определяет знак зодиака"""
     if user['date'][:1] in 'р.':
         user['date'] = user['date'].replace('р. ', '')
+    if user['date'][0] == '?':
+        user['date'] = user['date'].replace('?', '1200')
+    print(user['date'])
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
         coordinates_sun = get_body('sun', date_user, loc)
-        # print(str(coordinates_sun)[219:-28])
-        coordinates_sun = float(str(coordinates_sun)[219:-28])
+        # print(str(coordinates_sun).split()[-3].replace('(', '').replace(',', ''))
+        coordinates_sun = float(str(coordinates_sun).split()[-3].replace('(', '').replace(',', ''))
         user['coordinates_sun'] = coordinates_sun
     if 0 <= coordinates_sun < 30:
         user['zodiac_sign_of_sun'] = 'aries'
@@ -57,12 +48,13 @@ def mercury_user(user):
     """Функция рассчитывает координаты Меркурия по дате рождения пользователя, определяет знак зодиака планеты"""
     if user['date'][:1] in 'р.':
         user['date'] = user['date'].replace('р. ', '')
+    if user['date'][0] == '?':
+        user['date'] = user['date'].replace('?', '1200')
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
         coordinates_mercury = get_body('mercury', date_user, loc)
-        # print(str(coordinates_sun)[219:-28])
-        coordinates_mercury = float(str(coordinates_mercury)[219:-28])
+        coordinates_mercury = float(str(coordinates_mercury).split()[-3].replace('(', '').replace(',', ''))
         user['coordinates_mercury'] = coordinates_mercury
     if 0 <= coordinates_mercury < 30:
         user['zodiac_sign_of_mercury'] = 'aries'
@@ -94,12 +86,13 @@ def mars_user(user):
     """Функция рассчитывает координаты Марса по дате рождения пользователя, определяет знак зодиака планеты"""
     if user['date'][:1] in 'р.':
         user['date'] = user['date'].replace('р. ', '')
+    if user['date'][0] == '?':
+        user['date'] = user['date'].replace('?', '1200')
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
         coordinates_mars = get_body('mars', date_user, loc)
-        # print(str(coordinates_sun)[219:-28])
-        coordinates_mars = float(str(coordinates_mars)[219:-28])
+        coordinates_mars = float(str(coordinates_mars).split()[-3].replace('(', '').replace(',', ''))
         user['coordinates_mars'] = coordinates_mars
     if 0 <= coordinates_mars < 30:
         user['zodiac_sign_of_mars'] = 'aries'
@@ -131,11 +124,13 @@ def jupiter_user(user):
     """Функция рассчитывает координаты Юпитера по дате рождения пользователя, определяет знак зодиака планеты"""
     if user['date'][:1] in 'р.':
         user['date'] = user['date'].replace('р. ', '')
+    if user['date'][0] == '?':
+        user['date'] = user['date'].replace('?', '1200')
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
         coordinates_jupiter = get_body('jupiter', date_user, loc)
-        coordinates_jupiter = float(str(coordinates_jupiter)[219:-28])
+        coordinates_jupiter = float(str(coordinates_jupiter).split()[-3].replace('(', '').replace(',', ''))
         user['coordinates_jupiter'] = coordinates_jupiter
     if 0 <= coordinates_jupiter < 30:
         user['zodiac_sign_of_jupiter'] = 'aries'
@@ -167,11 +162,13 @@ def saturn_user(user):
     """Функция рассчитывает координаты Сатурна по дате рождения пользователя, определяет знак зодиака планеты"""
     if user['date'][:1] in 'р.':
         user['date'] = user['date'].replace('р. ', '')
+    if user['date'][0] == '?':
+        user['date'] = user['date'].replace('?', '1200')
     date_user = Time(user['date'] + ' 12:00')
     loc = EarthLocation.of_site('greenwich')
     with solar_system_ephemeris.set('builtin'):
         coordinates_saturn = get_body('saturn', date_user, loc)
-        coordinates_saturn = float(str(coordinates_saturn)[219:-29])
+        coordinates_saturn = float(str(coordinates_saturn).split()[-3].replace('(', '').replace(',', ''))
         user['coordinates_saturn'] = coordinates_saturn
     if 0 <= coordinates_saturn < 30:
         user['zodiac_sign_of_saturn'] = 'aries'
@@ -199,35 +196,6 @@ def saturn_user(user):
         user['zodiac_sign_of_saturn'] = 'pisces'
 
 
-user = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
-        "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
-
-sun_user(user)
-mercury_user(user)
-mars_user(user)
-jupiter_user(user)
-saturn_user(user)
-
-
-# {'date': '1934-1-4', 'name': 'Зураб Церетели',
-#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
-#  'coordinates_sun': 285.61208171,
-#  'zodiac_sign_of_sun': 'capricorn',
-#  'coordinates_mercury': 275.6333463,
-#  'zodiac_sign_of_mercury': 'capricorn',
-#  'coordinates_mars': 309.3849143,
-#  'zodiac_sign_of_mars': 'aquarius',
-#  'coordinates_jupiter': 201.175321,
-#  'zodiac_sign_of_jupiter': 'libra',
-#  'coordinates_saturn': 318.44305432,
-#  'zodiac_sign_of_saturn': 'aquarius'}
-
-
-
-
-
-
-
 professions = {'aries': ['спортсмен', 'теннисист', 'боксер', 'стрелок', 'автогонщик', 'гонщик', 'лыжник',
                          'биатлонист', 'шахматист', 'гимнаст', 'гимнастка', 'чемпионка', 'хоккеист', 'чемпион',
                          'тренер', 'физик', 'инженер', 'механик', 'военачальник', 'каскадер', 'дрессировщик',
@@ -238,7 +206,7 @@ professions = {'aries': ['спортсмен', 'теннисист', 'боксе
                          'криминалист', 'детектив', 'ученый', 'хирург', 'врач', 'психиатр', 'психолог', 'астроном',
                          'испытатель', 'стоматолог', 'травматолог', 'пилот', 'летчик', 'летчица', 'водитель',
                          'пилот', 'конструктор', 'разработчик', 'вооружения', 'телеведущий', 'альпинист', 'электроник',
-                         'математик', 'военачальник', 'лидер', 'первый'],
+                         'математик', 'военачальник', 'лидер', 'первый', 'император'],
 
                'taurus': ['юрист', 'адвокат', 'строитель', 'архитектор', 'земледелец', 'фермер', 'повар',
                           'землевладелец', 'банкир', 'бухгалтер', 'экономист', 'певец', 'певица', 'артист', 'артистка',
@@ -289,7 +257,7 @@ professions = {'aries': ['спортсмен', 'теннисист', 'боксе
                        'продюсер', 'дирижер', 'педагог', 'преподаватель', 'ректор', 'тренер', 'атлет', 'ресторан',
                        'казино', 'ресторан', 'галерея', 'искусствовед', 'военный', 'разведчик', 'криминалист',
                        'начальник', 'критик', 'деятель', 'агитатор', 'публицист', 'автор', 'композитор', 'пианист',
-                       'пианистка', 'кино', 'театр', 'профессор', 'лидер'],
+                       'пианистка', 'кино', 'театр', 'профессор', 'лидер', 'император'],
 
                'virgo': ['ученый', 'математик', 'физик', 'химик', 'разработчик', 'изобретатель', 'диктор', 'профессор',
                          'биолог', 'автор', 'писатель', 'писательница', 'переводчик', 'переводчица', 'разведчик',
@@ -372,7 +340,7 @@ professions = {'aries': ['спортсмен', 'теннисист', 'боксе
                              'преподаватель', 'статистик', 'военачальник', 'офицер', 'майор', 'генерал', 'полководец',
                              'солдат', 'военный', 'социолог', 'инженер', 'техник', 'технолог', 'географ', 'картограф',
                              'пилот', 'инженер', 'микробиолог', 'художник', 'скульптор', 'оружейник', 'промышленник',
-                             'теоретик', 'историк', 'академик', 'создатель'],
+                             'теоретик', 'историк', 'академик', 'создатель', 'император'],
 
                'aquarius': ['пилот', 'инженер', 'космонавт', 'астроном', 'астролог', 'летчик', 'летчица', 'водитель',
                             'математик', 'физик', 'публицист', 'писатель', 'писательница', 'ученый', 'техник',
@@ -417,7 +385,7 @@ def checking_planet(user, professions_of_zodiac_signs):
     new_user_profession = []
     for el in user_profession:
         new_user_profession.append(el.replace(',', ''))
-    print(new_user_profession)
+    # print(new_user_profession)
     user['connection_sun_proffesion'] = 0
     user['count_sun_proffesion'] = 0
 
@@ -454,59 +422,30 @@ def checking_planet(user, professions_of_zodiac_signs):
             user['connection_saturn_proffesion'] = 1
             user['count_saturn_proffesion'] += 1
 
-checking_planet(user, professions)
-print(user)
 
-# {'date': '1934-1-4', 'name': 'Зураб Церетели',
-#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
-#  'coordinates_sun': 285.61208171,
-#  'zodiac_sign_of_sun': 'capricorn',
-#  'coordinates_mercury': 275.6333463,
-#  'zodiac_sign_of_mercury': 'capricorn',
-#  'coordinates_mars': 309.3849143,
-#  'zodiac_sign_of_mars': 'aquarius',
-#  'coordinates_jupiter': 201.175321,
-#  'zodiac_sign_of_jupiter': 'libra',
-#  'coordinates_saturn': 318.44305432,
-#  'zodiac_sign_of_saturn': 'aquarius',
-#  'connection_sun_proffesion': 1,
-#  'count_sun_proffesion': 3,
-#  'connection_mercury_proffesion': 1,
-#  'count_mercury_proffesion': 3,
-#  'connection_mars_proffesion': 1,
-#  'count_mars_proffesion': 4,
-#  'connection_jupiter_proffesion': 1,
-#  'count_jupiter_proffesion': 4,
-#  'connection_saturn_proffesion': 1,
-#  'count_saturn_proffesion': 4}
+user = {"date": "р. 1934-1-4", "name": "Зураб Церетели",
+        "profession": "советский и российский художник, скульптор, педагог, Народный художник России"}
 
 
-# {'date': '1934-1-4', 'name': 'Зураб Церетели',
-#  'profession': 'советский и российский художник, скульптор, педагог, Народный художник России',
-#  'coordinates_sun': 285.61208171,
-#  'zodiac_sign_of_sun': 'capricorn',
-#  'coordinates_mercury': 275.6333463,
-#  'zodiac_sign_of_mercury': 'capricorn',
-#  'coordinates_mars': 309.3849143,
-#  'zodiac_sign_of_mars': 'aquarius',
-#  'coordinates_jupiter': 201.175321,
-#  'zodiac_sign_of_jupiter': 'libra',
-#  'coordinates_saturn': 318.44305432,
-#  'zodiac_sign_of_saturn': 'aquarius'}
+if __name__ == '__main__':
+    sun_user(user)
+    mercury_user(user)
+    mars_user(user)
+    jupiter_user(user)
+    saturn_user(user)
+    checking_planet(user, professions)
+    print(user)
 
+
+# t = Time("1200-1-4 12:00")
+# loc = EarthLocation.of_site('greenwich')
 #
-# for i in test['profession'].split():
-#     if i in professions['capricorn']:
-#         print(i)
+# with solar_system_ephemeris.set('builtin'):
+#     sun_user = get_body('saturn', t, loc)
 #
-# k = test['profession'].split()
-# new_k = []
-# for i in k:
-#     new_k.append(i.replace(',', ''))
-# print(new_k)
-#
-# for prof in new_k:
-#     if prof in professions['capricorn']:
-#         test['planets'] = 1
-#         print(prof)
-# print(test)
+# print(sun_user)
+
+# <SkyCoord (GCRS: obstime=2024-12-10 16:30:00.000, obsgeoloc=(3353159.10641094, -2163608.49484903, 4958838.61798787)
+# m, obsgeovel=(157.78511936, 243.64017167, -0.39054804) m / s): (ra, dec, distance) in (deg, deg, AU)
+#     (257.78413159, -22.96298649, 0.98471784)>
+
